@@ -42,31 +42,31 @@ pip install -r requirements.txt
 ### Basic password test (default: 4‑digit PINs)
 
 ```bash
-python3 keepass_kdf_analysis.py database.kdbx
+python3 keepass_kdf_analysis/main.py database.kdbx
 ```
 
 ### Use a wordlist
 
 ```bash
-python3 keepass_kdf_analysis.py database.kdbx -w wordlist.txt
+python3 keepass_kdf_analysis/main.py database.kdbx -w wordlist.txt
 ```
 
 ### Measure password attempts per second
 
 ```bash
-python3 keepass_kdf_analysis.py database.kdbx -m 5
+python3 keepass_kdf_analysis/main.py database.kdbx -m 5
 ```
 
 ### Verbose output
 
 ```bash
-python3 keepass_kdf_analysis.py database.kdbx -v
+python3 keepass_kdf_analysis/main.py database.kdbx -v
 ```
 
 ### Alternative PBKDF2 mode
 
 ```bash
-python3 keepass_kdf_analysis.py database.kdbx -a
+python3 keepass_kdf_analysis/main.py database.kdbx -a
 ```
 
 ---
