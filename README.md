@@ -16,7 +16,6 @@ The tool is intentionally limited to small password spaces (e.g. 4‑digit PINs 
 
 * Parses KeePass 2 database headers
 * Reproduces the KeePass key derivation process:
-
   * AES-based transform rounds
   * SHA‑256 hashing
   * Optional PBKDF2‑HMAC‑SHA256 mode
@@ -25,27 +24,15 @@ The tool is intentionally limited to small password spaces (e.g. 4‑digit PINs 
 
 ---
 
-## Features
-
-* KeePass 2 header parsing
-* AES‑256 (ECB & CBC) encryption
-* SHA‑256 hashing
-* PBKDF2 (optional alternative mode)
-* Wordlist or numeric PIN testing
-* Performance measurement mode
-* Controlled corruption test for research purposes
-
----
-
 ## Requirements
 
 * Python 3.8+
-* PyCryptodome
+* PyCryptodome 3.18.0+
 
 Install dependency:
 
 ```bash
-pip install pycryptodome
+pip install -r requirements.txt 
 ```
 
 ---
@@ -98,7 +85,7 @@ Only test databases you own or have explicit permission to analyze.
 ## Why This Matters
 
 KeePass relies on strong cryptography, but password strength and KDF configuration determine real-world security.
-This tool demonstrates how weak passwords can still be vulnerable — even with strong encryption.
+This tool demonstrates how weak passwords can still be vulnerable, even with strong encryption.
 
 ---
 
