@@ -51,10 +51,10 @@ python3 keepass_kdf_analysis/main.py database.kdbx
 python3 keepass_kdf_analysis/main.py database.kdbx -w wordlist.txt
 ```
 
-### Measure password attempts per second
+### Measure password attempts per given seconds
 
 ```bash
-python3 keepass_kdf_analysis/main.py database.kdbx -m 5
+python3 keepass_kdf_analysis/main.py database.kdbx -m seconds
 ```
 
 ### Verbose output
