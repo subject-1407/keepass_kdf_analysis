@@ -154,19 +154,22 @@ if __name__ == '__main__':
     parser.add_argument('database', help='database file to use')
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='verbose output')
-    parser.add_argument('-w', '--wordlist', help='use wordlist of passwords to use')
+    parser.add_argument('-w', '--wordlist', help='use wordlist of passwords')
     parser.add_argument('-m', '--measure', metavar='SECONDS',
                         help='measure number of passwords which can be tested in given seconds')
     parser.add_argument('-c', '--corrupt', metavar='PASSWORD',
-                        help='calculates encrypted_stream_start_bytes of stream_start_bytes = 0x0 for given password. This can be used to create a modified but still valid second database file.')
+                        help='calculates encrypted_stream_start_bytes of stream_start_bytes = 0x0 for given password - this can be used to create a modified but still valid second database file')
     parser.add_argument('-a', '--alternative', action='store_true',
                         help='alternative mode using pbkdf2-hmac-sha256 to calculate key')
     args = parser.parse_args()
     # args.verbose and args.alternative get handled as global flags
 
-    if args.corrupt:
-        corrupt(args.database, args.corrupt)
-    elif args.measure:
-        measure(args.database, args.measure)
-    else:
-        main(args.database, wordlist=args.wordlist)
+    try:
+        if args.corrupt:
+            corrupt(args.database, args.corrupt)
+        elif args.measure:
+            measure(args.database, args.measure)
+        else:
+            main(args.database, wordlist=args.wordlist)
+    except KeyboardInterrupt:
+        print("\nCtrl+C detected, exiting...")
